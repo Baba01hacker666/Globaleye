@@ -1,21 +1,21 @@
         :root {
-            --bg: #03060a;
-            --panel: rgba(5, 10, 16, 0.97);
-            --panel-alt: rgba(8, 14, 22, 0.9);
-            --red: #ff2233;
-            --red-dim: rgba(255,34,51,0.15);
-            --green: #00ff88;
-            --green-dim: rgba(0,255,136,0.08);
-            --cyan: #00e5ff;
-            --cyan-dim: rgba(0,229,255,0.08);
-            --amber: #ffaa00;
-            --amber-dim: rgba(255,170,0,0.1);
-            --purple: #aa44ff;
-            --border: rgba(255,255,255,0.06);
-            --border-bright: rgba(0,229,255,0.2);
-            --text: #cdd6e8;
-            --text-dim: #3a4a60;
-            --text-med: #7a8fa8;
+            --bg: #0a0e17;
+            --panel: rgba(13, 20, 31, 0.97);
+            --panel-alt: rgba(18, 27, 41, 0.9);
+            --red: #e74c3c;
+            --red-dim: rgba(231,76,60,0.15);
+            --green: #2ecc71;
+            --green-dim: rgba(46,204,113,0.08);
+            --cyan: #0190ea; /* Doraemon Blue */
+            --cyan-dim: rgba(1,144,234,0.1);
+            --amber: #f1c40f;
+            --amber-dim: rgba(241,196,15,0.1);
+            --purple: #9b59b6;
+            --border: rgba(255,255,255,0.08);
+            --border-bright: rgba(1,144,234,0.3);
+            --text: #e0e6ed;
+            --text-dim: #6c7a8c;
+            --text-med: #a0aec0;
             --mono: 'Share Tech Mono', monospace;
             --display: 'Orbitron', sans-serif;
             --ui: 'Rajdhani', sans-serif;
@@ -115,7 +115,7 @@
             width: 4px; height: 4px;
             background: var(--cyan);
             border-radius: 50%;
-            box-shadow: 0 0 10px 2px var(--cyan);
+            box-shadow: 0 0 6px rgba(1,144,234,0.5);
         }
         @keyframes radarSpin { to { transform: rotate(360deg); } }
 
@@ -127,7 +127,7 @@
             letter-spacing: 8px;
             color: #fff;
             line-height: 1;
-            text-shadow: 0 0 15px var(--cyan), 0 0 25px rgba(0,229,255,0.6);
+            text-shadow: 0 0 10px rgba(1,144,234,0.4);
         }
         .subtitle {
             font-family: var(--mono);
@@ -175,7 +175,7 @@
             width: 5px; height: 5px;
             border-radius: 50%;
             background: currentColor;
-            box-shadow: 0 0 6px currentColor;
+            box-shadow: 0 0 4px currentColor;
             animation: blink 1.2s ease-in-out infinite alternate;
         }
         @keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; } }
@@ -516,10 +516,10 @@
 
         /* ===== POPUPS ===== */
         .leaflet-popup-content-wrapper {
-            background: rgba(3,6,10,0.98);
+            background: rgba(13,20,31,0.98);
             border: 1px solid var(--cyan);
-            border-radius: 0;
-            box-shadow: 0 0 20px rgba(0,229,255,0.2);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         .leaflet-popup-tip-container { display: none; }
         .leaflet-popup-content {
@@ -567,3 +567,69 @@
         .ftab:last-child { border-right: none; }
         .ftab.active { color: var(--cyan); background: var(--cyan-dim); }
         .ftab:hover:not(.active) { color: var(--text-med); }
+
+        /* ===== RESPONSIVE LAYOUT ===== */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 280px 1fr;
+                grid-template-rows: 56px 1fr 300px 38px;
+                grid-template-areas:
+                    "header header"
+                    "sidebar map"
+                    "rightpanel rightpanel"
+                    "footer footer";
+            }
+            .rightpanel {
+                flex-direction: row;
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+            .selected-panel, .event-panel {
+                flex: 1;
+            }
+            .selected-panel {
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+            }
+            .header-center {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: 56px 40vh 1fr 38px;
+                grid-template-areas:
+                    "header"
+                    "map"
+                    "sidebar"
+                    "footer";
+                overflow-y: auto;
+                height: auto;
+                min-height: 100vh;
+            }
+            .rightpanel {
+                display: none; /* Hide right panel completely on very small screens to save space */
+            }
+            aside {
+                border-right: none;
+                border-top: 1px solid var(--border);
+            }
+            .brand {
+                gap: 8px;
+            }
+            .title {
+                font-size: 0.9rem;
+                letter-spacing: 4px;
+            }
+            .subtitle {
+                font-size: 0.5rem;
+            }
+            .header-right {
+                gap: 5px;
+            }
+            .op-tag, .badge span {
+                font-size: 0.5rem;
+            }
+        }
