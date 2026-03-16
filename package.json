@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "global eye",
+  "main": "verify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baba01hacker666/Globaleye.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Baba01hacker666/Globaleye/issues"
+  },
+  "homepage": "https://github.com/Baba01hacker666/Globaleye#readme",
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}
