@@ -633,3 +633,78 @@
                 font-size: 0.5rem;
             }
         }
+
+/* MOBILE STYLES */
+@media (max-width: 480px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 56px 45vh 1fr;
+        grid-template-areas:
+            "header"
+            "map"
+            "sidebar";
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    header {
+        justify-content: flex-start;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .header-right, .header-center {
+        display: none;
+    }
+
+    .stats-bar, .filter-tabs, .map-corner, footer {
+        display: none;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .title {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.4rem;
+        letter-spacing: 1px;
+    }
+
+    .logo-mark {
+        width: 24px; height: 24px;
+    }
+
+    aside {
+        border-right: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .panel-title {
+        font-size: 0.8rem;
+        padding: 15px 20px;
+    }
+
+    .panel-title-count {
+        font-size: 0.8rem;
+    }
+
+    .tcard {
+        padding: 15px 20px;
+        margin-bottom: 5px;
+    }
+
+    .tcard-callsign {
+        font-size: 1.2rem;
+    }
+
+    .trow-key, .trow-val {
+        font-size: 0.7rem;
+    }
+}
